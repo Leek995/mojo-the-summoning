@@ -3,7 +3,7 @@
 // const db = require('../db/config')
 const { sequelize } = require("../db/config");
 const { User } = require("./User");
-const {Decks} = require("./Decks");
+
 
 
 // define in global scope
@@ -11,12 +11,12 @@ let user;
 
 // clear db and create new user before tests
 beforeAll(async () => {
-  await sequelize.sync({ force: true })
-  user = await User.create({ username: 'gandalf' })
-})
+  await sequelize.sync({ force: true });
+  user = await User.create({ username: 'gandalf' });
+});
 
 // clear db after tests
-afterAll(async () => await sequelize.sync({ force: true }))
+afterAll(async () => await sequelize.sync({ force: true }));
 
 describe('User', () => {
   test('has an "id"', async () => {

@@ -1,10 +1,9 @@
 // create your User model here
-const {sequelize, Model, DataTypes } = require("../db/config");
+const { sequelize, Model, DataTypes } = require("../db/config");
 
-class User extends Model{}
+class User extends Model {}
 
 User.init({
-    //
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
