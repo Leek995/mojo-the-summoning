@@ -1,6 +1,3 @@
-// const { describe, it, expect, beforeAll, afterAll } = require('@jest/globals')
-// const { User } = require('./User')
-// const db = require('../db/config')
 const { sequelize } = require("../db/config");
 const { User } = require("./User");
 
@@ -19,31 +16,36 @@ beforeAll(async () => {
 afterAll(async () => await sequelize.sync({ force: true }));
 
 describe('User', () => {
+
   test('has an "id"', async () => {
     expect(user).toHaveProperty('id');
     expect(user.id).toBe(1);
   });
+
   test('the created user is instance of User class', async () => {
     expect(user).toBeInstanceOf(User);
   });
-  test('property "username", should be a string with appropriate value', async  ()=>{
+
+  test('property "username", should be a string with appropriate value', async  () => {
     expect(user.username).toBe('gandalf');
     expect(typeof user.username).toBe("string");
   });
+
   test('CRUD functionality, should UPDATE users in table', async () => {
     let findByNameInDbAndUpdate = await User.findOne({
       where: {username: user.username},
     });
-    await findByNameInDbAndUpdate.update({username: 'Malik'})
+    await findByNameInDbAndUpdate.update({username: 'Malik'});
     let afterUpdate = await User.findOne({
-      where: {username: 'Malik'}
-    })
-    expect(afterUpdate.username).toBe('Malik')
+      where: {username: 'Malik'},
+    });
+    expect(afterUpdate.username).toBe('Malik');
   });
+
   test('CRUD functionality, should DELETE user from table', async () => {
     await user.destroy();
     let findDeletedUser = await User.findAll();
     expect(findDeletedUser).toHaveLength(0);
   });
 
-})
+});
