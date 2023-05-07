@@ -18,8 +18,8 @@ Attacks.init({
         sequelize: sequelize,
         modelName: "Attacks",
         timestamps: false
-    })
+    });
 
 module.exports = {
     Attacks
-}
+};
