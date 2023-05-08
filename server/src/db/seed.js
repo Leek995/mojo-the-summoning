@@ -1,4 +1,4 @@
-const { db } = require('./config')
+const { sequelize } = require('./config')
 const { User, Deck, Card, Attack } = require('../models')
 
 function randInt(a, b) {
@@ -8,13 +8,13 @@ function randInt(a, b) {
 async function seed() {
   // Test connection of db
   try {
-    await db.authenticate();
+    await sequelize.authenticate();
     console.log('Connection has been established successfully.');
   } catch (error) {
     console.error('Unable to connect to the database:', error);
   }
 
-  await db.sync({ force: true })
+  await sequelize.sync({ force: true })
   //
   // const users = await User.bulkCreate([
   //   { username: 'v1per' },
