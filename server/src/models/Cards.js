@@ -1,8 +1,11 @@
 const { sequelize, Model, DataTypes } = require("../db/config");
 
+
+
 class Cards extends Model {}
 
 Cards.init({
+
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -22,5 +25,5 @@ Cards.init({
     });
 
 module.exports = {
-    Cards
+    Cards,
 };

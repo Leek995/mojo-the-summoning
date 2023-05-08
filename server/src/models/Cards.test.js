@@ -1,5 +1,5 @@
 const { sequelize } = require("../db/config");
-const { Cards } = require("./Cards");
+const { Cards, Decks } = require("./index");
 
 
 
@@ -33,6 +33,8 @@ describe('Cards', () => {
         expect(typeof cards.stamina).toBe("number");
         expect(cards.imgUrl).toBe('//cards.com')
     });
+
+    test()
 
     test('CRUD functionality, should READ from Cards table', async () => {
         let findImgUrlInTable = await Cards.findOne({

@@ -1,8 +1,11 @@
 const { sequelize, Model, DataTypes } = require("../db/config")
 
+
+
 class Attacks extends Model {}
 
 Attacks.init({
+
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -12,6 +15,7 @@ Attacks.init({
     title: DataTypes.STRING,
     mojoCost: DataTypes.INTEGER,
     staminaCost: DataTypes.INTEGER,
+
     },
 
     {
@@ -21,5 +25,5 @@ Attacks.init({
     });
 
 module.exports = {
-    Attacks
+    Attacks,
 };
